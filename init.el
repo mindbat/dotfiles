@@ -7,6 +7,10 @@
 ;; Don't want none of them files without a dangling newline now
 (setq require-final-newline t)
 
+(setq make-backup-files nil)
+
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
 (add-to-list 'load-path "~/.emacs.d/modes/clojure-mode")
 (require 'clojure-mode)
 
