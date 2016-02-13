@@ -1,7 +1,7 @@
 (require 'package)
 (add-to-list 'package-archives
              '("marmalade" .
-               "http://marmalade-repo.org/packages/"))
+               "https://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives
 	     '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (package-initialize)
@@ -10,6 +10,8 @@
 (setq require-final-newline t)
 
 (setq make-backup-files nil)
+
+(show-paren-mode 1)
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
