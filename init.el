@@ -16,23 +16,18 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (add-to-list 'load-path "~/.emacs.d/modes/clojure-mode")
+
 (require 'clojure-mode)
 
 (eval-after-load 'clojure-mode
   '(progn
      (remove-hook 'slime-indentation-update-hooks 'put-clojure-indent)))
 
-(defun run-ns-tests ()
-  (interactive)
-  (nrepl-load-current-buffer)
-  (clojure-jump-to-test)
-  (nrepl-load-current-buffer)
-  (clojure-test-run-tests)
-  (quit-window))
-(define-key clojure-mode-map (kbd "C-c ,") 'run-ns-tests)
+(setq cider-show-error-buffer nil)
 
 (autoload 'paredit-mode "paredit"
   "Minor mode for pseudo-structurally editing Lisp code." t)
+
 (eval-after-load 'paredit
   ;; need a binding that works in the terminal
   '(progn
@@ -42,11 +37,14 @@
 (add-hook 'prog-mode-hook (lambda ()
                             (paredit-mode 1)))
 
+(add-hook 'cider-repl-mode-hook #'paredit-mode)
+
 ;; === qrr is better than query-replace-regexp ===
 (defalias 'qrr 'query-replace-regexp)
 
 ;; === remapping paredit keys, because emacs is a heart-breaker ===
 (require 'paredit)
+
 (define-key paredit-mode-map (kbd "C-o C-r") 'paredit-forward-slurp-sexp)
 (define-key paredit-mode-map (kbd "C-o M-r") 'paredit-forward-barf-sexp)
 (define-key paredit-mode-map (kbd "C-o C-l") 'paredit-backward-slurp-sexp)
