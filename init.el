@@ -24,6 +24,7 @@
      (remove-hook 'slime-indentation-update-hooks 'put-clojure-indent)))
 
 (setq cider-show-error-buffer nil)
+(setq cider-prompt-for-symbol nil)
 
 (autoload 'paredit-mode "paredit"
   "Minor mode for pseudo-structurally editing Lisp code." t)
