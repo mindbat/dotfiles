@@ -70,3 +70,5 @@
 (global-auto-revert-mode 1)
 
 (global-git-gutter-mode t)
+
+(add-hook 'org-mode-hook 'turn-on-auto-fill)
