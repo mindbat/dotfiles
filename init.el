@@ -10,6 +10,9 @@
 
 (show-paren-mode 1)
 
+;; no tabs, please
+(setq indent-tabs-mode nil)
+
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (add-to-list 'load-path "~/.emacs.d/modes/clojure-mode")
@@ -72,3 +75,17 @@
 (global-git-gutter-mode t)
 
 (add-hook 'org-mode-hook 'turn-on-auto-fill)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (cider zenburn-theme yaml-mode rust-mode paredit markdown-mode magit git-gutter clojure-mode))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
