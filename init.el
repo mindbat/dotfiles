@@ -75,6 +75,8 @@
 (global-git-gutter-mode t)
 
 (add-hook 'org-mode-hook 'turn-on-auto-fill)
+(setq org-agenda-files (append (directory-files-recursively "~/Code/worknotes" "org$")))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
