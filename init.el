@@ -67,7 +67,7 @@
 
 (setq ido-enable-flex-matching t)
 
-(load-theme 'zenburn t)
+;;(load-theme 'zenburn t)
 
 ;; Automagically revert all buffers
 (global-auto-revert-mode 1)
