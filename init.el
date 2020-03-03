@@ -13,6 +13,10 @@
 ;; no tabs, please
 (setq indent-tabs-mode nil)
 
+;; always split vertical
+(setq split-width-threshold 80)
+(setq split-height-threshold nil)
+
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (add-to-list 'load-path "~/.emacs.d/modes/clojure-mode")
@@ -84,7 +88,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (terraform-mode cider zenburn-theme yaml-mode rust-mode paredit markdown-mode magit git-gutter clojure-mode))))
+    (go-mode terraform-mode cider zenburn-theme yaml-mode rust-mode paredit markdown-mode magit git-gutter clojure-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
