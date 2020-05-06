@@ -81,6 +81,35 @@
 (add-hook 'org-mode-hook 'turn-on-auto-fill)
 (setq org-agenda-files (append (directory-files-recursively "~/Code/worknotes" "org$")))
 
+;; rust-lang
+(require 'use-package)
+(use-package racer
+  :ensure t
+  :init
+  (progn
+    (add-hook 'racer-mode-hook #'eldoc-mode)))
+
+(use-package rust-mode
+  :ensure t
+  :init
+  (progn
+    (add-hook 'rust-mode-hook #'racer-mode)
+    (add-hook
+     'rust-mode-hook
+     (lambda ()
+       (add-hook 'before-save-hook 'rust-format-buffer)
+       (local-set-key (kbd "C-c n") #'rust-format-buffer)
+       (local-set-key (kbd "C-c C-k") #'rust-compile)))))
+
+(use-package flycheck-rust
+  :ensure t
+  :defer t
+  :after rust-mode
+  :init
+  (progn
+    (add-hook
+     'flycheck-mode-hook #'flycheck-rust-setup)))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -88,7 +117,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (go-mode terraform-mode cider zenburn-theme yaml-mode rust-mode paredit markdown-mode magit git-gutter clojure-mode))))
+    (flycheck-rust racer go-mode terraform-mode cider zenburn-theme yaml-mode rust-mode paredit markdown-mode magit git-gutter clojure-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
