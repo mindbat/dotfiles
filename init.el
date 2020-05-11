@@ -97,7 +97,6 @@
     (add-hook
      'rust-mode-hook
      (lambda ()
-       (add-hook 'before-save-hook 'rust-format-buffer)
        (local-set-key (kbd "C-c n") #'rust-format-buffer)
        (local-set-key (kbd "C-c C-k") #'rust-compile)))))
 
