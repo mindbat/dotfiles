@@ -30,17 +30,13 @@
 (setq cider-show-error-buffer nil)
 (setq cider-prompt-for-symbol nil)
 
-(autoload 'paredit-mode "paredit"
-  "Minor mode for pseudo-structurally editing Lisp code." t)
+(add-hook 'clojure-mode-hook 'paredit-mode)
 
 (eval-after-load 'paredit
   ;; need a binding that works in the terminal
   '(progn
      (define-key paredit-mode-map (kbd "M-)") 'paredit-forward-slurp-sexp)
      (define-key paredit-mode-map (kbd "M-(") 'paredit-backward-slurp-sexp)))
-
-(add-hook 'prog-mode-hook (lambda ()
-                            (paredit-mode 1)))
 
 (add-hook 'cider-repl-mode-hook #'paredit-mode)
 
