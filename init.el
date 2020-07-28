@@ -14,7 +14,7 @@
 (setq indent-tabs-mode nil)
 
 ;; always split vertical
-(setq split-width-threshold 100)
+(setq split-width-threshold 160)
 (setq split-height-threshold nil)
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
