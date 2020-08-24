@@ -31,6 +31,7 @@
 (setq cider-prompt-for-symbol nil)
 
 (add-hook 'clojure-mode-hook 'paredit-mode)
+(add-hook 'clojure-mode-hook 'git-gutter-mode)
 
 (eval-after-load 'paredit
   ;; need a binding that works in the terminal
@@ -72,9 +73,8 @@
 ;; Automagically revert all buffers
 (global-auto-revert-mode 1)
 
-(global-git-gutter-mode t)
-
 (add-hook 'org-mode-hook 'turn-on-auto-fill)
+
 (setq org-agenda-files (append (directory-files-recursively "~/Code/worknotes" "org$")))
 
 ;; rust-lang
@@ -90,6 +90,7 @@
   :init
   (progn
     (add-hook 'rust-mode-hook #'racer-mode)
+    (add-hook 'rust-mode #'git-gutter-mode)
     (add-hook
      'rust-mode-hook
      (lambda ()
