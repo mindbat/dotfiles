@@ -10,6 +10,8 @@
 
 (show-paren-mode 1)
 
+(global-display-line-numbers-mode)
+
 ;; no tabs, please
 (setq indent-tabs-mode nil)
 
