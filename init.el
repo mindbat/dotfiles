@@ -2,6 +2,8 @@
 (add-to-list 'package-archives
 	     '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (package-initialize)
+(package-refresh-contents)
+(package-install 'use-package)
 
 ;; Don't want none of them files without a dangling newline now
 (setq require-final-newline t)
@@ -13,7 +15,7 @@
 (global-display-line-numbers-mode)
 
 ;; no tabs, please
-(setq indent-tabs-mode nil)
+(setq-default indent-tabs-mode nil)
 
 ;; always split vertical
 (setq split-width-threshold 160)
@@ -77,7 +79,7 @@
 
 (add-hook 'org-mode-hook 'turn-on-auto-fill)
 
-(setq org-agenda-files (append (directory-files-recursively "~/Code/worknotes" "org$")))
+(setq org-agenda-files (quote ("/Users/mindbat/Code/worknotes/elastic")))
 
 ;; rust-lang
 (require 'use-package)
@@ -107,15 +109,13 @@
   (progn
     (add-hook
      'flycheck-mode-hook #'flycheck-rust-setup)))
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   (quote
-    (flycheck-rust racer go-mode terraform-mode cider zenburn-theme yaml-mode rust-mode paredit markdown-mode magit git-gutter clojure-mode))))
+   '(zenburn-theme yaml-mode use-package terraform-mode racer paredit markdown-mode magit json-mode js2-mode go-mode git-gutter flycheck-rust cider)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
