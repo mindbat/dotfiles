@@ -15,3 +15,6 @@ export PS1='%D %T %n@%m %~ %# '
 
 # customize bat for light iterm2
 export BAT_THEME="OneHalfLight"
+
+# load bash/zsh completions for mac os
+autoload -Uz compinit && compinit
