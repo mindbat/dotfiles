@@ -72,7 +72,7 @@
 
 (setq ido-enable-flex-matching t)
 
-;;(load-theme 'zenburn t)
+(load-theme 'zenburn t)
 
 ;; Automagically revert all buffers
 (global-auto-revert-mode 1)
@@ -83,17 +83,17 @@
 
 ;; rust-lang
 (require 'use-package)
-(use-package racer
-  :ensure t
-  :init
-  (progn
-    (add-hook 'racer-mode-hook #'eldoc-mode)))
+;;(use-package racer
+;;  :ensure t
+;;  :init
+;;  (progn
+;;    (add-hook 'racer-mode-hook #'eldoc-mode)))
 
 (use-package rust-mode
   :ensure t
   :init
   (progn
-    (add-hook 'rust-mode-hook #'racer-mode)
+    ;;(add-hook 'rust-mode-hook #'racer-mode)
     (add-hook 'rust-mode #'git-gutter-mode)
     (add-hook
      'rust-mode-hook
@@ -115,7 +115,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(zenburn-theme yaml-mode use-package terraform-mode racer paredit markdown-mode magit json-mode js2-mode go-mode git-gutter flycheck-rust cider)))
+   '(zerodark-theme flycheck-clojure flycheck-haskell flycheck-julia zenburn-theme yaml-mode use-package terraform-mode racer paredit markdown-mode magit json-mode js2-mode go-mode git-gutter flycheck-rust cider))
+ '(warning-suppress-log-types '((use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
