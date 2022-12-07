@@ -18,3 +18,7 @@ export BAT_THEME="OneHalfLight"
 
 # load bash/zsh completions for mac os
 autoload -Uz compinit && compinit
+
+# set gopath
+export GOPATH=$HOME/Code/gopath
+export PATH=$PATH:$GOPATH/bin
