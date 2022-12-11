@@ -39,7 +39,8 @@
   ;; need a binding that works in the terminal
   '(progn
      (define-key paredit-mode-map (kbd "M-)") 'paredit-forward-slurp-sexp)
-     (define-key paredit-mode-map (kbd "M-(") 'paredit-backward-slurp-sexp)))
+     (define-key paredit-mode-map (kbd "M-(") 'paredit-backward-slurp-sexp)
+     (define-key paredit-mode-map (kbd "RET") nil)))
 
 (add-hook 'cider-repl-mode-hook #'paredit-mode)
 
