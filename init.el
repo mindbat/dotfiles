@@ -23,8 +23,6 @@
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-(add-to-list 'load-path "~/.emacs.d/modes/clojure-mode")
-
 (require 'clojure-mode)
 
 (eval-after-load 'clojure-mode
