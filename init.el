@@ -78,7 +78,7 @@
 
 (add-hook 'org-mode-hook 'turn-on-auto-fill)
 
-(setq org-agenda-files (quote ("/Users/mindbat/Code/worknotes/")))
+(setq org-agenda-files (quote ("~/Code/worknotes")))
 
 ;; rust-lang
 (require 'use-package)
