@@ -23,11 +23,19 @@
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+;; eldoc gets out of hand sometimes
+(setq eldoc-echo-area-use-multiline-p nil)
+
 (require 'clojure-mode)
 
+;; needed for git-gutter to keep working
+;; see: https://github.com/emacs-mirror/emacs/blob/c4e038c7be38b2e6cf2d2c7c39264f068f789c02/etc/NEWS.29#L494
+;; and: https://github.com/emacsorphanage/git-gutter/issues/226
+(require 'linum)
+
 (eval-after-load 'clojure-mode
-  '(progn
-     (remove-hook 'slime-indentation-update-hooks 'put-clojure-indent)))
+   '(progn
+      (remove-hook 'slime-indentation-update-hooks 'put-clojure-indent)))
 
 (setq cider-show-error-buffer nil)
 (setq cider-prompt-for-symbol nil)
@@ -114,8 +122,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(zerodark-theme flycheck-clojure flycheck-haskell flycheck-julia zenburn-theme yaml-mode use-package terraform-mode racer paredit markdown-mode magit json-mode js2-mode go-mode git-gutter flycheck-rust cider))
- '(warning-suppress-log-types '((use-package))))
+   '(ac-etags salt-mode git-link zerodark-theme flycheck-clojure flycheck-haskell flycheck-julia zenburn-theme yaml-mode use-package terraform-mode racer paredit markdown-mode magit json-mode js2-mode go-mode git-gutter flycheck-rust cider)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
