@@ -87,6 +87,8 @@
 (add-hook 'org-mode-hook 'turn-on-auto-fill)
 
 (setq org-agenda-files (quote ("~/Code/worknotes")))
+(setq org-agenda-todo-ignore-deadlines 'all)
+
 
 ;; rust-lang
 (require 'use-package)
