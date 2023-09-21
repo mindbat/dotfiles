@@ -88,7 +88,7 @@
 
 (setq org-agenda-files (quote ("~/Code/worknotes")))
 (setq org-agenda-todo-ignore-deadlines 'all)
-
+(setq org-agenda-span 'day)
 
 ;; rust-lang
 (require 'use-package)
